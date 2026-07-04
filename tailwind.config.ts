@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				serif: ['Cormorant', 'serif'],
-				sans: ['Golos Text', 'sans-serif'],
+				serif: ['Montserrat', 'sans-serif'],
+				sans: ['Montserrat', 'sans-serif'],
 			},
 			colors: {
 				sky: {

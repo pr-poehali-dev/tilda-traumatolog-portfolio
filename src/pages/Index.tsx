@@ -19,12 +19,12 @@ const CLINICS = [
 ];
 
 const SERVICES = [
-  { icon: 'Bone', title: 'Травмы конечностей', text: 'Диагностика и лечение переломов, вывихов и растяжений.' },
-  { icon: 'Activity', title: 'Заболевания суставов', text: 'Артроз, артрит, восстановление подвижности суставов.' },
-  { icon: 'Stethoscope', title: 'Спортивные травмы', text: 'Реабилитация после травм у спортсменов и активных людей.' },
-  { icon: 'Scissors', title: 'Артроскопия', text: 'Малоинвазивные операции на коленном и плечевом суставах.' },
-  { icon: 'PersonStanding', title: 'Патологии стопы', text: 'Лечение плоскостопия, вальгусной деформации, hallux valgus.' },
-  { icon: 'HeartPulse', title: 'Реабилитация', text: 'Индивидуальные программы восстановления после операций.' },
+  { icon: 'Bone', title: 'Травмы конечностей', text: 'Диагностика и лечение переломов, вывихов и растяжений.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/c5164f2c-2f72-4736-89fd-6e830eed1a6b.jpg' },
+  { icon: 'Activity', title: 'Заболевания суставов', text: 'Артроз, артрит, восстановление подвижности суставов.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/fa3ff63c-4f92-4aa7-8f84-d06075ea0df9.jpg' },
+  { icon: 'Stethoscope', title: 'Спортивные травмы', text: 'Реабилитация после травм у спортсменов и активных людей.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/fe288d6b-19af-44cd-8c83-8d34bce88111.jpg' },
+  { icon: 'Scissors', title: 'Артроскопия', text: 'Малоинвазивные операции на коленном и плечевом суставах.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/520bf7e7-0687-44e1-9e8a-b79dc5b4f243.jpg' },
+  { icon: 'PersonStanding', title: 'Патологии стопы', text: 'Лечение плоскостопия, вальгусной деформации, hallux valgus.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/d74a6ab8-5570-44ea-847b-9211be9637dc.jpg' },
+  { icon: 'HeartPulse', title: 'Реабилитация', text: 'Индивидуальные программы восстановления после операций.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/0f977cfa-85b4-4d10-b8b2-5d96de8181d1.jpg' },
 ];
 
 const REVIEWS = [
@@ -34,9 +34,9 @@ const REVIEWS = [
 ];
 
 const CASES = [
-  { tag: 'Артроскопия', title: 'Восстановление колена спортсмена', text: 'Полный возврат к тренировкам за 6 недель после операции.' },
-  { tag: 'Эндопротезирование', title: 'Замена тазобедренного сустава', text: 'Пациент 68 лет вернулся к активной жизни без боли.' },
-  { tag: 'Травма', title: 'Сложный перелом голени', text: 'Остеосинтез и полное сращение кости за 3 месяца.' },
+  { tag: 'Артроскопия', title: 'Восстановление колена спортсмена', text: 'Полный возврат к тренировкам за 6 недель после операции.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/252e0ee0-1e95-44c4-aa73-ffc74981d399.jpg' },
+  { tag: 'Эндопротезирование', title: 'Замена тазобедренного сустава', text: 'Пациент 68 лет вернулся к активной жизни без боли.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/3f10ae2f-070f-42d1-a281-5eff6ee35e03.jpg' },
+  { tag: 'Травма', title: 'Сложный перелом голени', text: 'Остеосинтез и полное сращение кости за 3 месяца.', img: 'https://cdn.poehali.dev/projects/09fdc0d5-902f-40ea-8218-400557dd8829/files/95cf50b4-5d7d-4bec-9e6e-7ec6bf982f31.jpg' },
 ];
 
 const EDUCATION = [
@@ -208,12 +208,17 @@ const Index = () => {
           <SectionTitle kicker="Направления" title="Направления деятельности" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <div key={s.title} className="group rounded-3xl border border-sky-soft bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-sky/10">
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-light text-sky transition-colors group-hover:bg-sky group-hover:text-white">
-                  <Icon name={s.icon} size={26} />
-                </span>
-                <h3 className="mt-6 font-serif text-2xl font-600">{s.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{s.text}</p>
+              <div key={s.title} className="group overflow-hidden rounded-3xl border border-sky-soft bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-sky/10">
+                <div className="relative h-48 overflow-hidden">
+                  <img src={s.img} alt={s.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/90 text-sky backdrop-blur-sm">
+                    <Icon name={s.icon} size={24} />
+                  </span>
+                </div>
+                <div className="p-8">
+                  <h3 className="font-serif text-2xl font-600">{s.title}</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{s.text}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -246,9 +251,9 @@ const Index = () => {
           <SectionTitle kicker="Кейсы" title="Примеры работ" />
           <div className="grid gap-6 lg:grid-cols-3">
             {CASES.map((c) => (
-              <div key={c.title} className="overflow-hidden rounded-3xl border border-sky-soft bg-white">
-                <div className="flex h-40 items-center justify-center bg-gradient-to-br from-sky-soft to-sky-light">
-                  <Icon name="Bone" size={48} className="text-sky/50" />
+              <div key={c.title} className="group overflow-hidden rounded-3xl border border-sky-soft bg-white transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-sky/10">
+                <div className="h-48 overflow-hidden">
+                  <img src={c.img} alt={c.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-7">
                   <span className="inline-block rounded-full bg-sky-light px-3 py-1 text-xs font-600 uppercase tracking-wide text-sky-dark">
